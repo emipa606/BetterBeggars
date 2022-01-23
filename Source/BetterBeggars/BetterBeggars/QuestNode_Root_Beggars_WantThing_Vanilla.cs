@@ -206,7 +206,10 @@ namespace BetterBeggars
 			quest.End(QuestEndOutcome.Fail, 0, null, QuestGenUtility.HardcodedSignalWithQuestID("faction.BecameHostileToPlayer"));
 			quest.AllPawnsDespawned(pawns, delegate
 			{
-				AddDelayedReward(quest, pawns, faction, -1, 0.5f);
+				quest.SignalPassActivable(delegate
+				{
+					AddDelayedReward(quest, pawns, faction, -1, 0.5f);
+				}, null, null, null, null, itemsReceivedSignal);
 				QuestGen_End.End(quest, QuestEndOutcome.Success);
 			}, null, beggarLeftSignal);
 		}

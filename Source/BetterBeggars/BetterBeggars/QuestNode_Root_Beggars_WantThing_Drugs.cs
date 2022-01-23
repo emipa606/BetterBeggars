@@ -11,49 +11,49 @@ namespace BetterBeggars
 	public class QuestNode_Root_Beggars_WantThing_Drugs : QuestNode_Root_Beggars_WantThing
 	{
 
-		private static List<ThingDef> AllowedThings = new List<ThingDef>();
+		private static List<ThingDef> AllowedDrugs = new List<ThingDef>();
 
 		protected override void GetAllowedThings()
 		{
-			if (BetterBeggars_Mod.settings.flagYayo == true && !AllowedThings.Contains(BeggarDefOf.Yayo))
+			if (BetterBeggars_Mod.settings.flagYayo == true && !AllowedDrugs.Contains(BeggarDefOf.Yayo))
 			{
-				AllowedThings.Add(BeggarDefOf.Yayo);
+				AllowedDrugs.Add(BeggarDefOf.Yayo);
 			}
-			else if (BetterBeggars_Mod.settings.flagYayo == false && AllowedThings.Contains(BeggarDefOf.Yayo))
+			else if (BetterBeggars_Mod.settings.flagYayo == false && AllowedDrugs.Contains(BeggarDefOf.Yayo))
 			{
-				AllowedThings.Remove(BeggarDefOf.Yayo);
+				AllowedDrugs.Remove(BeggarDefOf.Yayo);
 			}
-			if (BetterBeggars_Mod.settings.flagFlake == true && !AllowedThings.Contains(BeggarDefOf.Flake))
+			if (BetterBeggars_Mod.settings.flagFlake == true && !AllowedDrugs.Contains(BeggarDefOf.Flake))
 			{
-				AllowedThings.Add(BeggarDefOf.Flake);
+				AllowedDrugs.Add(BeggarDefOf.Flake);
 			}
-			else if (BetterBeggars_Mod.settings.flagFlake == false && AllowedThings.Contains(BeggarDefOf.Flake))
+			else if (BetterBeggars_Mod.settings.flagFlake == false && AllowedDrugs.Contains(BeggarDefOf.Flake))
 			{
-				AllowedThings.Remove(BeggarDefOf.Flake);
+				AllowedDrugs.Remove(BeggarDefOf.Flake);
 			}
-			if (BetterBeggars_Mod.settings.flagLuciferium == true && !AllowedThings.Contains(ThingDefOf.Luciferium))
+			if (BetterBeggars_Mod.settings.flagLuciferium == true && !AllowedDrugs.Contains(ThingDefOf.Luciferium))
 			{
-				AllowedThings.Add(ThingDefOf.Luciferium);
+				AllowedDrugs.Add(ThingDefOf.Luciferium);
 			}
-			else if (BetterBeggars_Mod.settings.flagLuciferium == false && AllowedThings.Contains(ThingDefOf.Luciferium))
+			else if (BetterBeggars_Mod.settings.flagLuciferium == false && AllowedDrugs.Contains(ThingDefOf.Luciferium))
 			{
-				AllowedThings.Remove(ThingDefOf.Luciferium);
+				AllowedDrugs.Remove(ThingDefOf.Luciferium);
 			}
-			if (BetterBeggars_Mod.settings.flagSmokeleafJoint == true && !AllowedThings.Contains(ThingDefOf.SmokeleafJoint))
+			if (BetterBeggars_Mod.settings.flagSmokeleafJoint == true && !AllowedDrugs.Contains(ThingDefOf.SmokeleafJoint))
 			{
-				AllowedThings.Add(ThingDefOf.SmokeleafJoint);
+				AllowedDrugs.Add(ThingDefOf.SmokeleafJoint);
 			}
-			else if (BetterBeggars_Mod.settings.flagSmokeleafJoint == false && AllowedThings.Contains(ThingDefOf.SmokeleafJoint))
+			else if (BetterBeggars_Mod.settings.flagSmokeleafJoint == false && AllowedDrugs.Contains(ThingDefOf.SmokeleafJoint))
 			{
-				AllowedThings.Remove(ThingDefOf.SmokeleafJoint);
+				AllowedDrugs.Remove(ThingDefOf.SmokeleafJoint);
 			}
-			if (BetterBeggars_Mod.settings.flagBeer == true && !AllowedThings.Contains(ThingDefOf.Beer))
+			if (BetterBeggars_Mod.settings.flagBeer == true && !AllowedDrugs.Contains(ThingDefOf.Beer))
 			{
-				AllowedThings.Add(ThingDefOf.Beer);
+				AllowedDrugs.Add(ThingDefOf.Beer);
 			}
-			else if (BetterBeggars_Mod.settings.flagBeer == false && AllowedThings.Contains(ThingDefOf.Beer))
+			else if (BetterBeggars_Mod.settings.flagBeer == false && AllowedDrugs.Contains(ThingDefOf.Beer))
 			{
-				AllowedThings.Remove(ThingDefOf.Beer);
+				AllowedDrugs.Remove(ThingDefOf.Beer);
 			}
 		}
 
@@ -71,7 +71,7 @@ namespace BetterBeggars
 			slate.Set("valueFactor", BeggarRequestValueFactor);
 			GetAllowedThings();
 			BeggarRequestValueFactor = BetterBeggars_Mod.settings.BeggarRequestValueMultiplier;
-			if (TryFindRandomRequestedThing(map, num * BeggarRequestValueFactor, out var thingDef, out var count, AllowedThings))
+			if (TryFindRandomRequestedThing(map, num * BeggarRequestValueFactor, out var thingDef, out var count, AllowedDrugs))
 			{
 				slate.Set("requestedThing", thingDef);
 				slate.Set("requestedThingDefName", thingDef.defName);
@@ -190,7 +190,10 @@ namespace BetterBeggars
 			quest.End(QuestEndOutcome.Fail, 0, null, QuestGenUtility.HardcodedSignalWithQuestID("faction.BecameHostileToPlayer"));
 			quest.AllPawnsDespawned(pawns, delegate
 			{
-				AddDelayedReward(quest, pawns, faction, -1, 0.5f);
+				quest.SignalPassActivable(delegate
+				{
+					AddDelayedReward(quest, pawns, faction, -1, 0.5f);
+				}, null, null, null, null, itemsReceivedSignal);
 				QuestGen_End.End(quest, QuestEndOutcome.Success);
 			}, null, beggarLeftSignal);
 		}
@@ -204,17 +207,17 @@ namespace BetterBeggars
 				return false;
 			}
 			GetAllowedThings();
-			for (int i = 0; i < AllowedThings.Count; i++)
+			for (int i = 0; i < AllowedDrugs.Count; i++)
             {
-				slate.Set(AllowedThings[i].label, "yes");
+				slate.Set(AllowedDrugs[i].label, "yes");
             }
-			if (AllowedThings.Count == 0)
+			if (AllowedDrugs.Count == 0)
 			{
 				return false;
 			}
 			ThingDef thingDef;
 			int count;
-			return TryFindRandomRequestedThing(map, num * 0.85f, out thingDef, out count, AllowedThings);
+			return TryFindRandomRequestedThing(map, num * 0.85f, out thingDef, out count, AllowedDrugs);
 		}
 
     }
