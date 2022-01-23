@@ -1,0 +1,6 @@
+D:\Program Files\Games\Steam\steamapps\common\RimWorld\Mods\BetterBeggars\Source\BetterBeggars\BetterBeggars\bin\Debug\BetterBeggars.dll
+D:\Program Files\Games\Steam\steamapps\common\RimWorld\Mods\BetterBeggars\Source\BetterBeggars\BetterBeggars\bin\Debug\BetterBeggars.pdb
+D:\Program Files\Games\Steam\steamapps\common\RimWorld\Mods\BetterBeggars\Source\BetterBeggars\BetterBeggars\obj\Debug\BetterBeggars.csproj.CoreCompileInputs.cache
+D:\Program Files\Games\Steam\steamapps\common\RimWorld\Mods\BetterBeggars\Source\BetterBeggars\BetterBeggars\obj\Debug\BetterBeggars.dll
+D:\Program Files\Games\Steam\steamapps\common\RimWorld\Mods\BetterBeggars\Assemblies\BetterBeggars.dll
+D:\Program Files\Games\Steam\steamapps\common\RimWorld\Mods\BetterBeggars\Source\BetterBeggars\BetterBeggars\obj\Debug\BetterBeggars.csprojAssemblyReference.cache
