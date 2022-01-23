@@ -12,7 +12,7 @@ namespace BetterBeggars
     class QuestNode_Root_Beggars_Chased : QuestNode_Root_Beggars_Base
 	{
 		public const int JoinDelay = 1000;
-        public const int RaidDelay = 2000;
+        public const int RaidDelay = 4000;
 		public static int StayDurationDays = UnityEngine.Random.Range(3, 6);
 		public static int StayDurationTicks = StayDurationDays * 60000;
 		private static FloatRange MutinyTimeRange = new FloatRange(0.2f, 1f);

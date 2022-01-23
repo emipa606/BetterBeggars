@@ -53,9 +53,9 @@
 		<li>chaseInfo(beggarCount==1)-> [beggars0_pronoun] is being chased by [enemyFaction_pawnsPlural] from [enemyFaction_name], and begs for safety</li>
 		<li>chaseInfo(beggarCount>=2)-> They are being chased by [enemyFaction_pawnsPlural] from [enemyFaction_name], and they beg for safety</li>
 
-        <li>claimInfo(beggarCount==1)-> If you accept, you'll have to fight off the [enemyFaction_pawnsPluralDef] on [beggars0_possessive] tail</li>
+        <li>claimInfo(beggarCount==1)-> If you accept, you'll have to fight off [enemyFaction_pawnsPluralDef] on [beggars0_possessive] tail</li>
 
-        <li>claimInfo(beggarCount>=2)-> If you accept, you'll have to fight off the [enemyFaction_pawnsPluralDef] on their tail</li>
+        <li>claimInfo(beggarCount>=2)-> If you accept, you'll have to fight off [enemyFaction_pawnsPluralDef] on their tail</li>
 
         <li>moveOnInfo(beggarCount==1)->[beggars0_nameDef] will stay with you for [stayDurationTicks_duration], then move on</li>
         <li>moveOnInfo(beggarCount>=2)->The [beggarLabelPlural] will stay with you for [stayDurationTicks_duration], then move on</li>
