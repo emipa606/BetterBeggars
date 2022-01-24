@@ -11,7 +11,7 @@ public static class BeggarDefOf
 
     static BeggarDefOf()
     {
-        DefOfHelper.EnsureInitializedInCtor(typeof(ThingDefOf));
+        DefOfHelper.EnsureInitializedInCtor(typeof(BeggarDefOf));
     }
 }
 
