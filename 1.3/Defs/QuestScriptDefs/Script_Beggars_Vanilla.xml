@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <QuestScriptDef>
+    <defName>Beggars_WantThing_Vanilla</defName>
+    <isRootSpecial>true</isRootSpecial>
+    <autoAccept>true</autoAccept>
+    <defaultCharity>true</defaultCharity>
+    <affectedByPopulation>true</affectedByPopulation>
+    <hideInvolvedFactionsInfo>true</hideInvolvedFactionsInfo>
+    <questNameRules>
+      <rulesStrings>
+        <!-- quest name single -->
+        <li>questName(beggarCount==1)-&gt;[beggarSingle] [seekingSingle] [alms]</li>
+        <!-- quest name plural -->
+        <li>questName(beggarCount&gt;=2)-&gt;[beggarPlural] [seekingPlural] [alms]</li>
+        <!-- pieces -->
+        <li>beggarSingle-&gt;beggar</li>
+        <li>beggarSingle-&gt;vagabond</li>
+        <li>beggarSingle-&gt;drifter</li>
+        <li>beggarSingle-&gt;traveler</li>
+        <li>beggarPlural-&gt;[beggarSingle]s</li>
+        <li>seekingSingle-&gt;seeks</li>
+        <li>seekingSingle-&gt;requests</li>
+        <li>seekingSingle-&gt;wishes for</li>
+        <li>seekingSingle-&gt;desires</li>
+        <li>seekingSingle-&gt;needs</li>
+        <li>seekingSingle-&gt;hopes for</li>
+        <li>seekingPlural-&gt;seek</li>
+        <li>seekingPlural-&gt;request</li>
+        <li>seekingPlural-&gt;wish for</li>
+        <li>seekingPlural-&gt;hope for</li>
+        <li>seekingPlural-&gt;desire</li>
+        <li>seekingPlural-&gt;need</li>
+        <li>alms-&gt;alms</li>
+        <li>alms-&gt;aid</li>
+        <li>alms-&gt;charity</li>
+        <li>alms-&gt;resources</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <!-- misc -->
+        <li>groupLabelPlural-&gt;travelers</li>
+        <li>groupLabelSingle-&gt;traveler</li>
+        <li>travelerInfo(beggarCount==1)-&gt;This [groupLabelSingle] is</li>
+        <li>travelerInfo(beggarCount&gt;=2)-&gt;These [groupLabelPlural] are</li>
+        <li>beggingForInfo-&gt;for x[requestedThingCount] [requestedThing_label]</li>
+        <li>traverObjective(beggarCount==1)-&gt;[beggars0_objective]</li>
+        <li>traverObjective(beggarCount&gt;=2)-&gt;them</li>
+        <li>requestedThingDefNameSingleOrPlural(requestedThingCount==1)-&gt;[requestedThingDefName]</li>
+        <li>requestedThingDefNameSingleOrPlural(requestedThingCount&gt;=2)-&gt;[requestedThingDefName]s</li>
+        <!-- quest description -->
+        <li>questDescription-&gt;[approachInfo]. [requestInfo]. [claimInfo].\n\n[interactionInfo].\n\n[moveOnInfo].\n\n[travelerInfo] not part of any faction. If you wish, you can choose to kill, arrest, sell, or harvest [traverObjective], without diplomatic consequences.</li>
+        <li>approachInfo(beggarCount==1)-&gt;A poor [groupLabelSingle] named [beggars0_nameDef] is approaching looking for help</li>
+        <li>approachInfo(beggarCount&gt;=2)-&gt;A group of poor [groupLabelPlural] are approaching looking for help</li>
+        <li>requestInfo(beggarCount==1)-&gt;[beggars0_nameDef] is begging [beggingForInfo]</li>
+        <li>requestInfo(beggarCount&gt;=2)-&gt;The [groupLabelPlural] are begging [beggingForInfo]</li>
+        <li>claimInfo(beggarCount==1,requestedThingDefName==Silver)-&gt;[beggars0_nameDef] wants the silver to pay off a debt to a gang of pirates who are hunting [beggars0_objective]</li>
+        <li>claimInfo(beggarCount==1,requestedThingDefName==MedicineHerbal)-&gt;[beggars0_nameDef] needs the medicine to help a traveler who is injured nearby</li>
+        <li>claimInfo(beggarCount==1,requestedThingDefName==MedicineIndustrial)-&gt;[beggars0_nameDef] wants the medicine to save [beggars0_possessive] loyal pet who was injured on the road</li>
+        <li>claimInfo(beggarCount==1,requestedThingDefName==Penoxycyline)-&gt;[beggars0_nameDef] needs [requestedThing_label] to inoculate a sickly friend against deadly diseases</li>
+        <li>claimInfo(beggarCount==1,requestedThingDefName==Beer)-&gt;[beggars0_nameDef] wants it to drown [beggars0_possessive] sorrows after losing a fellow traveler in a terrible accident</li>
+        <li>claimInfo(beggarCount==1,requestedThingDefName==Gold)-&gt;[beggars0_nameDef] wants the gold to trade at the next settlement</li>
+        <li>claimInfo(beggarCount==1,requestedThingDefName==Steel)-&gt;[beggars0_nameDef] wants the steel to build a shanty town elsewhere</li>
+        <li>claimInfo(beggarCount==1,requestedThingDefName==WoodLog)-&gt;[beggars0_nameDef] wants the wood to build a shelter elsewhere</li>
+        <li>claimInfo(beggarCount==1,requestedThingDefName==ComponentIndustrial)-&gt;[beggars0_nameDef] wants the [requestedThingDefNameSingleOrPlural] to fix a cooler in the abandoned settlement they are staying in</li>
+        <li>claimInfo(beggarCount==1,requestedThingDefName==Cloth)-&gt;[beggars0_nameDef] wants the cloth to make new clothes for themselves</li>
+        <li>claimInfo(beggarCount&gt;=2,requestedThingDefName==Silver)-&gt;They want the silver so they can buy back a friend who was recently kidnapped</li>
+        <li>claimInfo(beggarCount&gt;=2,requestedThingDefName==MedicineHerbal)-&gt;They need the medicine to attempt a life-saving operation on a fellow traveler who was attacked by mechanoids</li>
+        <li>claimInfo(beggarCount&gt;=2,requestedThingDefName==MedicineIndustrial)-&gt;They need the medicine to help their friends at a nearby settlement that was devastated by raiders</li>
+        <li>claimInfo(beggarCount&gt;=2,requestedThingDefName==Penoxycyline)-&gt;They want [requestedThing_label] so they can travel safely while looking for a new place to call home</li>
+        <li>claimInfo(beggarCount&gt;=2,requestedThingDefName==Beer)-&gt;They want [requestedThing_label] to help them drown their sorrows after losing their home in a terrible attack</li>
+        <li>claimInfo(beggarCount&gt;=2,requestedThingDefName==Gold)-&gt;They want [requestedThing_label] to trade at the next settlement</li>
+        <li>claimInfo(beggarCount&gt;=2,requestedThingDefName==Steel)-&gt;They want [requestedThing_label] to build a shanty town elsewhere</li>
+        <li>claimInfo(beggarCount&gt;=2,requestedThingDefName==WoodLog)-&gt;They want [requestedThing_label] to build a shelter elsewhere</li>
+        <li>claimInfo(beggarCount&gt;=2,requestedThingDefName==ComponentIndustrial)-&gt;They want [requestedThing_label] to fix a generator in the abandoned settlement they are staying in</li>
+        <li>claimInfo(beggarCount&gt;=2,requestedThingDefName==Cloth)-&gt;They want [requestedThing_label] to build bedrolls to help them sleep</li>
+        <li>interactionInfo(beggarCount==1)-&gt;You can give items to [beggars0_nameDef] by selecting a colonist and right-clicking on [beggars0_objective]</li>
+        <li>interactionInfo(beggarCount&gt;=2)-&gt;You can give items to the [groupLabelPlural] by selecting a colonist and right-clicking on [beggars0_nameDef]</li>
+        <li>moveOnInfo(beggarCount==1)-&gt;[beggars0_nameDef] will move on after [visitDurationTicks_duration]</li>
+        <li>moveOnInfo(beggarCount&gt;=2)-&gt;The [groupLabelPlural] will move on after [visitDurationTicks_duration]</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    <questContentRules>
+      <rulesStrings>
+        <!-- letters -->
+        <li>letterLabelBeggarsBetrayed-&gt;[groupLabelSingleOrPlural] betrayed</li>
+        <li>letterTextBeggarsBetrayed-&gt;The [groupLabelSingleOrPlural] who [wasWere] seeking your charity [hasHave] been betrayed. Colonists with charitable beliefs will be unhappy.</li>
+        <!-- pieces -->
+        <li>hasHave(beggarCount==1)-&gt;has</li>
+        <li>hasHave(beggarCount&gt;=2)-&gt;have</li>
+        <li>wasWere(beggarCount==1)-&gt;was</li>
+        <li>wasWere(beggarCount&gt;=2)-&gt;were</li>
+        <li>groupLabelSingleOrPlural(beggarCount==1)-&gt;traveler</li>
+        <li>groupLabelSingleOrPlural(beggarCount&gt;=2)-&gt;travelers</li>
+      </rulesStrings>
+    </questContentRules>
+    <root Class="BetterBeggars.QuestNode_Root_Beggars_WantThing_Vanilla" />
+  </QuestScriptDef>
+</Defs>

@@ -1,27 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>Better Beggars</name>
-	<author>Fraser Hitchen</author>
-	<supportedVersions>
-		<li>1.3</li>
-	</supportedVersions>
-	<modDependencies>
-		<li>
-			<packageId>brrainz.harmony</packageId>
-			<displayName>Harmony</displayName>
-			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
-			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
-		</li>
-	</modDependencies>
-	<loadAfter>
-		<li>Ludeon.RimWorld.Ideology</li>
-		<li>brrainz.harmony</li>
-	</loadAfter>
-	<packageId>better.beggars</packageId>
-	<description>
+  <name>Better Beggars (Continued)</name>
+  <packageId>Mlie.BetterBeggars</packageId>
+  <author>Fraser Hitchen</author>
+  <url>https://github.com/emipa606/BetterBeggars</url>
+  <supportedVersions>
+    <li>1.3</li>
+    <li>1.4</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>Ludeon.Rimworld.Ideology</packageId>
+      <displayName>Rimworld Ideology</displayName>
+      <downloadUrl>https://store.steampowered.com/app/1392840/RimWorld__Ideology/</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Ludeon.Rimworld.Ideology</li>
+  </loadAfter>
+  <description>[img]https://i.imgur.com/buuPQel.png[/img]
+Update of Fraser Hitchens mod https://steamcommunity.com/sharedfiles/filedetails/?id=2729617288
+
+[img]https://i.imgur.com/pufA0kM.png[/img]
+
+[table]
+    [tr][td][url=https://dsc.gg/mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td] [td][url=https://github.com/emipa606/BetterBeggars][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+    [/tr]
+    [tr]
+        [td][img]https://i.imgur.com/WjDSfUn.png[/img][/td]
+        [td][img]https://i.imgur.com/h5VwTNL.png[/img][/td]
+    [/tr]
+[/table]
+	
+[img]https://i.imgur.com/Z4GOv8H.png[/img]
 Better Beggars enhances the beggars added in the Ideology DLC.
-		
-This mod allows you to customize how much beggars will ask for, as well as which items they will look for. In addition, it adds two new beggar encounters with more to come in the future!
-		
-	</description>
+
+[h1]Features[/h1]
+[list]
+[*] Change how much beggars will ask for (vanilla is a 0.85x multiplier on colony wealth, this mod allows you to change it from 0.1 up to 2x).
+[*] Change what items beggars ask for.
+[*] Beggars have a chance to send a delayed reward if you help them out.
+[*] New Event: Beggar addicts who will come and ask for drugs to help their addictions.
+[*] New Event: Beggars who are being chased by raiders, if you agree to help they will join you for a few days before leaving.
+[/list]
+
+[h1]Planned Features[/h1]
+[list]
+[*] Larger list of items to choose from.
+[*] More beggar events.
+[/list]
+
+[h1]FAQ[/h1]
+Q: Can this mod be added to an existing save?
+A: From my testing yes, but no promises.
+
+Q: Can this mod be safely removed from a save?
+A: From my testing yes.
+
+[h1]Compatibility[/h1]
+Should be compatible with all mods as long as they do not change the vanilla beggars quest or vanilla item defs. If you find compatibility issues let me know and I will try my best to sort them out!
+
+This mod is licensed under the GNU General Public License v3.0
+https://github.com/FraserHitchen/BetterBeggars
+
+[img]https://i.imgur.com/PwoNOj4.png[/img]
+[list]
+[*] See if the the error persists if you just have this mod and its requirements active.
+[*] If not, try adding your other mods until it happens again.
+[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] and command Ctrl+F12
+[*] For best support, please use the Discord-channel for error-reporting.
+[*] Do not report errors by making a discussion-thread, I get no notification of that.
+[*] If you have the solution for a problem, please post it to the GitHub repository.
+[/list]</description>
 </ModMetaData>
