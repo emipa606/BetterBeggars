@@ -62,7 +62,7 @@ public class QuestPart_BeggarsInteractions : QuestPartActivable
 
     public string outSignalSurgeryViolation_LeaveColony;
 
-    public List<Pawn> pawns = new List<Pawn>();
+    public List<Pawn> pawns = [];
 
     public int pawnsLeftUnhealthy;
 

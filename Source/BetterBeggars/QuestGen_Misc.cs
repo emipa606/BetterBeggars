@@ -9,7 +9,7 @@ namespace BetterBeggars;
 
 public static class QuestGen_Misc
 {
-    public static QuestPart_AddQuestBeggarsDelayedReward AddQuestBeggarsDelayedReward(this Quest quest, Pawn acceptee,
+    public static QuestPart_AddQuestBeggarsDelayedReward AddQuestBeggarsDelayedReward(this Quest quest,
         Faction beggarFaction, IEnumerable<Pawn> pawns, FloatRange marketValueRange, string inSignalRemovePawn = null)
     {
         var questPart_AddQuestBeggarsDelayedReward = new QuestPart_AddQuestBeggarsDelayedReward

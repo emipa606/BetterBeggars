@@ -10,7 +10,7 @@ namespace BetterBeggars;
 
 public class QuestNode_Root_Beggars_WantThing_Drugs : QuestNode_Root_Beggars_WantThing
 {
-    private static readonly List<ThingDef> AllowedDrugs = new List<ThingDef>();
+    private static readonly List<ThingDef> AllowedDrugs = [];
 
     protected virtual void GetAllowedThings()
     {
@@ -41,14 +41,15 @@ public class QuestNode_Root_Beggars_WantThing_Drugs : QuestNode_Root_Beggars_Wan
             AllowedDrugs.Remove(ThingDefOf.Luciferium);
         }
 
-        if (BetterBeggars_Mod.settings.flagSmokeleafJoint && !AllowedDrugs.Contains(ThingDefOf.SmokeleafJoint))
+        var smokeLeafDef = DefDatabase<ThingDef>.GetNamedSilentFail("SmokeleafJoint");
+        if (BetterBeggars_Mod.settings.flagSmokeleafJoint && !AllowedDrugs.Contains(smokeLeafDef))
         {
-            AllowedDrugs.Add(ThingDefOf.SmokeleafJoint);
+            AllowedDrugs.Add(smokeLeafDef);
         }
         else if (BetterBeggars_Mod.settings.flagSmokeleafJoint == false &&
-                 AllowedDrugs.Contains(ThingDefOf.SmokeleafJoint))
+                 AllowedDrugs.Contains(smokeLeafDef))
         {
-            AllowedDrugs.Remove(ThingDefOf.SmokeleafJoint);
+            AllowedDrugs.Remove(smokeLeafDef);
         }
 
         if (BetterBeggars_Mod.settings.flagBeer && !AllowedDrugs.Contains(ThingDefOf.Beer))

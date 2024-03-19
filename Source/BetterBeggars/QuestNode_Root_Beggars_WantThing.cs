@@ -20,6 +20,15 @@ public abstract class QuestNode_Root_Beggars_WantThing : QuestNode_Root_Beggars_
     {
         requestCountDict.Clear();
 
+        if (allowedThings.Where(GlobalValidator).TryRandomElement(out thingDef))
+        {
+            count = requestCountDict[thingDef];
+            return true;
+        }
+
+        count = 0;
+        return false;
+
         bool GlobalValidator(ThingDef td)
         {
             if (!td.PlayerAcquirable)
@@ -32,14 +41,5 @@ public abstract class QuestNode_Root_Beggars_WantThing : QuestNode_Root_Beggars_
             requestCountDict.Add(td, num);
             return PlayerItemAccessibilityUtility.Accessible(td, num, map);
         }
-
-        if (allowedThings.Where(GlobalValidator).TryRandomElement(out thingDef))
-        {
-            count = requestCountDict[thingDef];
-            return true;
-        }
-
-        count = 0;
-        return false;
     }
 }

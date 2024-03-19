@@ -10,7 +10,7 @@ namespace BetterBeggars;
 
 public class QuestNode_Root_Beggars_WantThing_Vanilla : QuestNode_Root_Beggars_WantThing
 {
-    private static readonly List<ThingDef> AllowedThings = new List<ThingDef>();
+    private static readonly List<ThingDef> AllowedThings = [];
 
     protected virtual void GetAllowedThings()
     {

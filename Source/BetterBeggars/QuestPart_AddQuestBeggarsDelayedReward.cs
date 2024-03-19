@@ -10,7 +10,7 @@ namespace BetterBeggars;
 public class QuestPart_AddQuestBeggarsDelayedReward : QuestPart_AddQuest
 {
     public Faction beggarFaction;
-    public List<Pawn> beggars = new List<Pawn>();
+    public List<Pawn> beggars = [];
 
     public string inSignalRemovePawn;
 

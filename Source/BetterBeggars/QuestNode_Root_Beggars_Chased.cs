@@ -76,7 +76,7 @@ internal class QuestNode_Root_Beggars_Chased : QuestNode_Root_Beggars_Base
         var beggarRecruitedSignal = QuestGenUtility.HardcodedSignalWithQuestID("beggars.Recruited");
 
         _ = quest.ExtraFaction(beggarFaction, pawns, ExtraFactionType.MiniFaction,
-            false, beggarRecruitedSignal);
+            false, [beggarRecruitedSignal]);
 
         var questPart_Choice = quest.RewardChoice();
         var choice = new QuestPart_Choice.Choice

@@ -26,6 +26,6 @@ public abstract class QuestNode_Root_Beggars_Base : QuestNode
         var num2 = pawnCount * (DurationDays == -1 ? 1 : DurationDays) * 55f;
         var marketValueRange = new FloatRange(0.7f, 1.3f) * num2 *
                                Find.Storyteller.difficulty.EffectiveQuestRewardValueFactor;
-        quest.AddQuestBeggarsDelayedReward(quest.AccepterPawn, faction, pawns, marketValueRange);
+        quest.AddQuestBeggarsDelayedReward(faction, pawns, marketValueRange);
     }
 }
