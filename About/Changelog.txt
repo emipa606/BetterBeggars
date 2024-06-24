@@ -1,5 +1,8 @@
 # Changelog for BetterBeggars
 
+1.5.1 - Fixed the config error about duplicate quest trigger
+
+
 1.5.0 - Mod updated for 1.5 and passed autotests
 
 
