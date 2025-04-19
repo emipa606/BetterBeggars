@@ -24,4 +24,6 @@
   <BeggarRequestValueMultiplier>Better Beggars request value multiplier</BeggarRequestValueMultiplier>
   <BeggarRequestValueMultiplier_Tooltip>This multiplier will affect the value of things that beggars request during beggar quests, as a multiplier on colony wealth. For example, if set to 0.4 beggars will request roughly half of what they would in vanilla as the vanilla multiplier is 0.85.</BeggarRequestValueMultiplier_Tooltip>
   <BetterBeggars_resetMultiplier>Reset multiplier</BetterBeggars_resetMultiplier>
+  <BetterBeggars_limitMaxValue>Limit max value</BetterBeggars_limitMaxValue>
+  <BetterBeggars_maxValue>Max possible value: {0} silver</BetterBeggars_maxValue>
 </LanguageData>

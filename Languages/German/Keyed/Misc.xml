@@ -24,4 +24,6 @@
   <BeggarRequestValueMultiplier>Bessere Bettler beantragen Wertmultiplikator</BeggarRequestValueMultiplier>
   <BeggarRequestValueMultiplier_Tooltip>Dieser Multiplikator wirkt sich auf den Wert der Dinge aus, die Bettler während Bettlerquests anfordern, als Multiplikator für den Reichtum der Kolonie. Wenn er beispielsweise auf 0,4 gesetzt wird, verlangen Bettler ungefähr die Hälfte dessen, was sie in Vanille verlangen würden, da der Vanille-Multiplikator 0,85 beträgt.</BeggarRequestValueMultiplier_Tooltip>
   <BetterBeggars_resetMultiplier>Multiplikator zurücksetzen</BetterBeggars_resetMultiplier>
+  <BetterBeggars_limitMaxValue>Maximalwert begrenzen</BetterBeggars_limitMaxValue>
+  <BetterBeggars_maxValue>Maximal möglicher Wert: {0} Silber</BetterBeggars_maxValue>
 </LanguageData>

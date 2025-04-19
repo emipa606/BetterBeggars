@@ -1,5 +1,6 @@
 ﻿// BetterBeggars.QuestNode_Root_Beggars_WantThing_Vanilla
 
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using RimWorld.QuestGen;
@@ -115,7 +116,13 @@ public class QuestNode_Root_Beggars_WantThing_Vanilla : QuestNode_Root_Beggars_W
         slate.Set("valueFactor", BeggarRequestValueFactor);
         GetAllowedThings();
         BeggarRequestValueFactor = BetterBeggars_Mod.settings.BeggarRequestValueMultiplier;
-        if (TryFindRandomRequestedThing(map, num * BeggarRequestValueFactor, out var thingDef, out var count,
+        var points = num * BeggarRequestValueFactor;
+        if (BetterBeggars_Mod.settings.LimitMaxValue)
+        {
+            points = Math.Min(points, BetterBeggars_Mod.settings.MaxValue);
+        }
+
+        if (TryFindRandomRequestedThing(map, points, out var thingDef, out var count,
                 AllowedThings))
         {
             slate.Set("requestedThing", thingDef);
@@ -204,7 +211,7 @@ public class QuestNode_Root_Beggars_WantThing_Vanilla : QuestNode_Root_Beggars_W
                 quest.Message("MessageBeggarsLeavingWithItems".Translate(pawnLabelSingleOrPlural),
                     MessageTypeDefOf.PositiveEvent, false, null, pawns);
             }, itemsReceivedSignal);
-        quest.AnySignal(new[] { beggarKilledSignal, beggarArrestedSignal }, delegate
+        quest.AnySignal([beggarKilledSignal, beggarArrestedSignal], delegate
         {
             quest.SignalPassActivable(
                 delegate

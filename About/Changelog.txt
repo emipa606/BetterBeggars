@@ -1,5 +1,9 @@
 # Changelog for BetterBeggars
 
+1.5.2 - Added setting to set the max value
+Used DeepL to update translations for ChineseSimplified, French, German
+
+
 1.5.1 - Fixed the config error about duplicate quest trigger
 
 

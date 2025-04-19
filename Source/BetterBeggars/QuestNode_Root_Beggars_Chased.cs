@@ -83,8 +83,8 @@ internal class QuestNode_Root_Beggars_Chased : QuestNode_Root_Beggars_Base
         {
             rewards =
             {
-                (Reward)new Reward_VisitorsHelp(),
-                (Reward)new Reward_PossibleFutureReward()
+                new Reward_VisitorsHelp(),
+                new Reward_PossibleFutureReward()
             }
         };
         questPart_Choice.choices.Add(choice);
@@ -318,7 +318,7 @@ internal class QuestNode_Root_Beggars_Chased : QuestNode_Root_Beggars_Base
     protected override bool TestRunInt(Slate slate)
     {
         var map = QuestGen_Get.GetMap();
-        return Find.Storyteller.difficulty.allowViolentQuests && TryFindWalkInSpot(map, out var _);
+        return Find.Storyteller.difficulty.allowViolentQuests && TryFindWalkInSpot(map, out _);
     }
 
     private bool TryFindWalkInSpot(Map map, out IntVec3 spawnSpot)

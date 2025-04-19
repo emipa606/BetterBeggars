@@ -24,4 +24,6 @@
   <BeggarRequestValueMultiplier>更好的乞丐请求值乘数</BeggarRequestValueMultiplier>
   <BeggarRequestValueMultiplier_Tooltip>这个乘数会影响乞丐在乞丐任务中要求的东西的价值，作为殖民地财富的乘数。例如，如果设置为 0.4，乞丐们所要求的物品价值大约为香草版本的一半，因为香草版本的乘数是 0.85。</BeggarRequestValueMultiplier_Tooltip>
   <BetterBeggars_resetMultiplier>重置乘数</BetterBeggars_resetMultiplier>
+  <BetterBeggars_limitMaxValue>极限最大值</BetterBeggars_limitMaxValue>
+  <BetterBeggars_maxValue>最大可能值：{0}银</BetterBeggars_maxValue>
 </LanguageData>

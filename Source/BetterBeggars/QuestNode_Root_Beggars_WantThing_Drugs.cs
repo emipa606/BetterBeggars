@@ -1,5 +1,6 @@
 ﻿// BetterBeggars.QuestNode_Root_Beggars_WantThing_Drugs
 
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using RimWorld.QuestGen;
@@ -14,51 +15,56 @@ public class QuestNode_Root_Beggars_WantThing_Drugs : QuestNode_Root_Beggars_Wan
 
     protected virtual void GetAllowedThings()
     {
-        if (BetterBeggars_Mod.settings.flagYayo && !AllowedDrugs.Contains(BeggarDefOf.Yayo))
+        switch (BetterBeggars_Mod.settings.flagYayo)
         {
-            AllowedDrugs.Add(BeggarDefOf.Yayo);
-        }
-        else if (BetterBeggars_Mod.settings.flagYayo == false && AllowedDrugs.Contains(BeggarDefOf.Yayo))
-        {
-            AllowedDrugs.Remove(BeggarDefOf.Yayo);
-        }
-
-        if (BetterBeggars_Mod.settings.flagFlake && !AllowedDrugs.Contains(BeggarDefOf.Flake))
-        {
-            AllowedDrugs.Add(BeggarDefOf.Flake);
-        }
-        else if (BetterBeggars_Mod.settings.flagFlake == false && AllowedDrugs.Contains(BeggarDefOf.Flake))
-        {
-            AllowedDrugs.Remove(BeggarDefOf.Flake);
+            case true when !AllowedDrugs.Contains(BeggarDefOf.Yayo):
+                AllowedDrugs.Add(BeggarDefOf.Yayo);
+                break;
+            case false when AllowedDrugs.Contains(BeggarDefOf.Yayo):
+                AllowedDrugs.Remove(BeggarDefOf.Yayo);
+                break;
         }
 
-        if (BetterBeggars_Mod.settings.flagLuciferium && !AllowedDrugs.Contains(ThingDefOf.Luciferium))
+        switch (BetterBeggars_Mod.settings.flagFlake)
         {
-            AllowedDrugs.Add(ThingDefOf.Luciferium);
+            case true when !AllowedDrugs.Contains(BeggarDefOf.Flake):
+                AllowedDrugs.Add(BeggarDefOf.Flake);
+                break;
+            case false when AllowedDrugs.Contains(BeggarDefOf.Flake):
+                AllowedDrugs.Remove(BeggarDefOf.Flake);
+                break;
         }
-        else if (BetterBeggars_Mod.settings.flagLuciferium == false && AllowedDrugs.Contains(ThingDefOf.Luciferium))
+
+        switch (BetterBeggars_Mod.settings.flagLuciferium)
         {
-            AllowedDrugs.Remove(ThingDefOf.Luciferium);
+            case true when !AllowedDrugs.Contains(ThingDefOf.Luciferium):
+                AllowedDrugs.Add(ThingDefOf.Luciferium);
+                break;
+            case false when AllowedDrugs.Contains(ThingDefOf.Luciferium):
+                AllowedDrugs.Remove(ThingDefOf.Luciferium);
+                break;
         }
 
         var smokeLeafDef = DefDatabase<ThingDef>.GetNamedSilentFail("SmokeleafJoint");
-        if (BetterBeggars_Mod.settings.flagSmokeleafJoint && !AllowedDrugs.Contains(smokeLeafDef))
+        switch (BetterBeggars_Mod.settings.flagSmokeleafJoint)
         {
-            AllowedDrugs.Add(smokeLeafDef);
-        }
-        else if (BetterBeggars_Mod.settings.flagSmokeleafJoint == false &&
-                 AllowedDrugs.Contains(smokeLeafDef))
-        {
-            AllowedDrugs.Remove(smokeLeafDef);
+            case true when !AllowedDrugs.Contains(smokeLeafDef):
+                AllowedDrugs.Add(smokeLeafDef);
+                break;
+            case false when
+                AllowedDrugs.Contains(smokeLeafDef):
+                AllowedDrugs.Remove(smokeLeafDef);
+                break;
         }
 
-        if (BetterBeggars_Mod.settings.flagBeer && !AllowedDrugs.Contains(ThingDefOf.Beer))
+        switch (BetterBeggars_Mod.settings.flagBeer)
         {
-            AllowedDrugs.Add(ThingDefOf.Beer);
-        }
-        else if (BetterBeggars_Mod.settings.flagBeer == false && AllowedDrugs.Contains(ThingDefOf.Beer))
-        {
-            AllowedDrugs.Remove(ThingDefOf.Beer);
+            case true when !AllowedDrugs.Contains(ThingDefOf.Beer):
+                AllowedDrugs.Add(ThingDefOf.Beer);
+                break;
+            case false when AllowedDrugs.Contains(ThingDefOf.Beer):
+                AllowedDrugs.Remove(ThingDefOf.Beer);
+                break;
         }
     }
 
@@ -77,7 +83,13 @@ public class QuestNode_Root_Beggars_WantThing_Drugs : QuestNode_Root_Beggars_Wan
         slate.Set("valueFactor", BeggarRequestValueFactor);
         GetAllowedThings();
         BeggarRequestValueFactor = BetterBeggars_Mod.settings.BeggarRequestValueMultiplier;
-        if (TryFindRandomRequestedThing(map, num * BeggarRequestValueFactor, out var thingDef, out var count,
+        var points = num * BeggarRequestValueFactor;
+        if (BetterBeggars_Mod.settings.LimitMaxValue)
+        {
+            points = Math.Min(points, BetterBeggars_Mod.settings.MaxValue);
+        }
+
+        if (TryFindRandomRequestedThing(map, points, out var thingDef, out var count,
                 AllowedDrugs))
         {
             slate.Set("requestedThing", thingDef);
@@ -192,7 +204,7 @@ public class QuestNode_Root_Beggars_WantThing_Drugs : QuestNode_Root_Beggars_Wan
                 quest.Message("MessageBeggarsLeavingWithItems".Translate(pawnLabelSingleOrPlural),
                     MessageTypeDefOf.PositiveEvent, false, null, pawns);
             }, itemsReceivedSignal);
-        quest.AnySignal(new[] { beggarKilledSignal, beggarArrestedSignal }, delegate
+        quest.AnySignal([beggarKilledSignal, beggarArrestedSignal], delegate
         {
             quest.SignalPassActivable(
                 delegate

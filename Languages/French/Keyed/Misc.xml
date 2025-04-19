@@ -24,4 +24,6 @@
   <BeggarRequestValueMultiplier>Multiplicateur de la valeur de la demande de Better Beggars</BeggarRequestValueMultiplier>
   <BeggarRequestValueMultiplier_Tooltip>Ce multiplicateur affectera la valeur des choses que les mendiants demandent pendant les quêtes des mendiants, comme un multiplicateur de la richesse de la colonie. Par exemple, s'il est réglé sur 0,4, les mendiants demanderont environ la moitié de ce qu'ils demanderaient en vanille, car le multiplicateur de vanille est de 0,85.</BeggarRequestValueMultiplier_Tooltip>
   <BetterBeggars_resetMultiplier>Remise à zéro du multiplicateur</BetterBeggars_resetMultiplier>
+  <BetterBeggars_limitMaxValue>Limite Valeur maximale</BetterBeggars_limitMaxValue>
+  <BetterBeggars_maxValue>Valeur maximale possible : {0} argent</BetterBeggars_maxValue>
 </LanguageData>

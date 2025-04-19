@@ -10,7 +10,7 @@ public class BetterBeggars_Settings : ModSettings
 {
     public const float BeggarRequestValueMultiplierBase = 0.85f;
     private static Vector2 scrollPosition = Vector2.zero;
-    public float BeggarRequestValueMultiplier = 0.85f;
+    public float BeggarRequestValueMultiplier = BeggarRequestValueMultiplierBase;
     public bool flagBeer = true;
     public bool flagCloth;
     public bool flagComponent;
@@ -31,6 +31,9 @@ public class BetterBeggars_Settings : ModSettings
 
     // Drugs
     public bool flagYayo = true;
+    private string intBuffer;
+    public bool LimitMaxValue;
+    public int MaxValue = 700;
 
     public override void ExposeData()
     {
@@ -51,6 +54,8 @@ public class BetterBeggars_Settings : ModSettings
         Scribe_Values.Look(ref flagLuciferium, "flagLuciferium", true, true);
         Scribe_Values.Look(ref flagSmokeleafJoint, "flagSmokeleafJoint", true, true);
         Scribe_Values.Look(ref BeggarRequestValueMultiplier, "BeggarRequestValueMultiplier", 0.85f, true);
+        Scribe_Values.Look(ref LimitMaxValue, "LimitMaxValue");
+        Scribe_Values.Look(ref MaxValue, "MaxValue", 700);
     }
 
     internal void DoWindowContents(Rect inRect)
@@ -103,10 +108,17 @@ public class BetterBeggars_Settings : ModSettings
             -1f, "BeggarRequestValueMultiplier_Tooltip".Translate());
         BeggarRequestValueMultiplier =
             (float)Math.Round(listing_Standard.Slider(BeggarRequestValueMultiplier, 0.1f, 2f), 2);
-        if (listing_Standard.Settings_Button("BetterBeggars_resetMultiplier".Translate(),
-                new Rect(0f, listing_Standard.CurHeight, 180f, 29f)))
+
+        if (listing_Standard.ButtonText("BetterBeggars_resetMultiplier".Translate()))
         {
-            BeggarRequestValueMultiplier = 0.85f;
+            BeggarRequestValueMultiplier = BeggarRequestValueMultiplierBase;
+        }
+
+        listing_Standard.CheckboxLabeled("BetterBeggars_limitMaxValue".Translate(), ref LimitMaxValue);
+        if (LimitMaxValue)
+        {
+            listing_Standard.Label("BetterBeggars_maxValue".Translate(MaxValue));
+            listing_Standard.IntEntry(ref MaxValue, ref intBuffer);
         }
 
         if (BetterBeggars_Mod.currentVersion != null)
