@@ -175,7 +175,14 @@ public class QuestNode_Root_Beggars_WantThing_Drugs : QuestNode_Root_Beggars_Wan
             allowDevelopmentPoints = true,
             thingRewardDisallowed = true
         });
-        var pawnLabelSingleOrPlural = numOfBeggars > 1 ? faction.def.pawnsPlural : faction.def.pawnSingular;
+        var pawnLabelSingleOrPlural = faction.def.pawnSingular;
+        var translationKey = "MessageBeggarsLeavingWithItemsSingular";
+        if (numOfBeggars > 1)
+        {
+            pawnLabelSingleOrPlural = faction.def.pawnsPlural;
+            translationKey = "MessageBeggarsLeavingWithItemsPlural";
+        }
+
         quest.Delay(60000, delegate
         {
             quest.Leave(pawns, null, false, false);
@@ -195,13 +202,13 @@ public class QuestNode_Root_Beggars_WantThing_Drugs : QuestNode_Root_Beggars_Wan
             {
                 quest.Message(
                     "MessageCharityEventFulfilled".Translate() + ": " +
-                    "MessageBeggarsLeavingWithItems".Translate(pawnLabelSingleOrPlural), MessageTypeDefOf.PositiveEvent,
+                    translationKey.Translate(pawnLabelSingleOrPlural), MessageTypeDefOf.PositiveEvent,
                     false, null, pawns);
                 quest.RecordHistoryEvent(HistoryEventDefOf.CharityFulfilled_Beggars);
             },
             delegate
             {
-                quest.Message("MessageBeggarsLeavingWithItems".Translate(pawnLabelSingleOrPlural),
+                quest.Message(translationKey.Translate(pawnLabelSingleOrPlural),
                     MessageTypeDefOf.PositiveEvent, false, null, pawns);
             }, itemsReceivedSignal);
         quest.AnySignal([beggarKilledSignal, beggarArrestedSignal], delegate
