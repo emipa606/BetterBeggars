@@ -12,11 +12,11 @@ namespace BetterBeggars;
 
 internal class QuestNode_Root_Beggars_Chased : QuestNode_Root_Beggars_Base
 {
-    public const int JoinDelay = 1000;
-    public const int RaidDelay = 4000;
-    public static readonly int StayDurationDays = Rand.Range(3, 6);
-    public static readonly int StayDurationTicks = StayDurationDays * 60000;
-    private static FloatRange MutinyTimeRange = new FloatRange(0.2f, 1f);
+    private const int JoinDelay = 1000;
+    private const int RaidDelay = 4000;
+    private static readonly int StayDurationDays = Rand.Range(3, 6);
+    private static readonly int StayDurationTicks = StayDurationDays * 60000;
+    private static FloatRange MutinyTimeRange = new(0.2f, 1f);
 
     protected override void RunInt()
     {
@@ -150,7 +150,7 @@ internal class QuestNode_Root_Beggars_Chased : QuestNode_Root_Beggars_Base
 
         quest.Delay(RaidDelay, delegate
         {
-            quest.Raid(map, num, enemyFaction, walkInSpot: walkInSpot,
+            quest.Raid(map.Parent, num, enemyFaction, walkInSpot: walkInSpot,
                 customLetterLabel: "{BASELABEL} chasing beggars");
         }, null, null, stayDoneSignal);
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN:
+    <li>rewardLetterLabel->Charity reward</li>
+    <li>rewardLetterText->[rewardGiver_nameDef] has contacted you. [rewardDelayTicks_duration] ago, you helped [rewardGiver_objective] in desperate circumstances.\n\nSince then, [rewardGiver_pronoun] has gotten back on [rewardGiver_possessive] feet, and now [rewardGiver_pronoun] wants to reward you properly for your help. [rewardGiver_pronoun] is sending you the following via drop pod:\n\n[listOfRewards]</li>
+  -->
+  <Beggars_DelayedReward.questContentRules.rulesStrings>
+    <li>rewardLetterLabel->Charity reward</li>
+    <li>rewardLetterText->[rewardGiver_nameDef] has contacted you. [rewardDelayTicks_duration] ago, you helped [rewardGiver_objective] in desperate circumstances.\n\nSince then, [rewardGiver_pronoun] has gotten back on [rewardGiver_possessive] feet, and now [rewardGiver_pronoun] wants to reward you properly for your help. [rewardGiver_pronoun] is sending you the following via drop pod:\n\n[listOfRewards]</li>
+  </Beggars_DelayedReward.questContentRules.rulesStrings>
+  <!-- EN:
+    <li>questDescription->a delayed reward for beggar quest</li>
+  -->
+  <Beggars_DelayedReward.questDescriptionRules.rulesStrings>
+    <li>questDescription->a delayed reward for beggar quest</li>
+  </Beggars_DelayedReward.questDescriptionRules.rulesStrings>
+  <!-- EN:
+    <li>questName->Beggar delayed reward</li>
+  -->
+  <Beggars_DelayedReward.questNameRules.rulesStrings>
+    <li>questName->Beggar delayed reward</li>
+  </Beggars_DelayedReward.questNameRules.rulesStrings>
+</LanguageData>

@@ -2,11 +2,16 @@
   "Continued": true,
   "CanAdd": "0",
   "CanRemove": "0",
-  "PreviewVersion": "1.5",
+  "PreviewVersion": "1.6",
   "SocialImageSet": true,
-  "LastXmlCleaning": "2025-04-29T22:29:02.9701193+02:00",
+  "LastXmlCleaning": "2025-07-05T22:25:54.5103311+02:00",
   "SearchTags": [
     " event",
     " customization"
-  ]
+  ],
+  "Patches": true,
+  "Defs": true,
+  "Assemblies": true,
+  "LinesOfCode": 73155.0,
+  "LinesOfXML": 25236.0
 }

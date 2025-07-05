@@ -8,14 +8,14 @@ namespace BetterBeggars;
 
 public class BetterBeggars_Mod : Mod
 {
-    public static BetterBeggars_Settings settings;
-    public static string currentVersion;
+    public static BetterBeggars_Settings Settings;
+    public static string CurrentVersion;
 
     public BetterBeggars_Mod(ModContentPack content)
         : base(content)
     {
-        settings = GetSettings<BetterBeggars_Settings>();
-        currentVersion = VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
+        Settings = GetSettings<BetterBeggars_Settings>();
+        CurrentVersion = VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
     }
 
     public override string SettingsCategory()
@@ -25,6 +25,6 @@ public class BetterBeggars_Mod : Mod
 
     public override void DoSettingsWindowContents(Rect inRect)
     {
-        settings.DoWindowContents(inRect);
+        Settings.DoWindowContents(inRect);
     }
 }

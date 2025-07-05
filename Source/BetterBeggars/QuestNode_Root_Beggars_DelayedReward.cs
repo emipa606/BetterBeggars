@@ -35,7 +35,7 @@ internal class QuestNode_Root_Beggars_DelayedReward : QuestNode
 
     protected override bool TestRunInt(Slate slate)
     {
-        if (slate.Get<Pawn>("rewardGiver") != null && slate.TryGet<FloatRange>("marketValueRange", out var _))
+        if (slate.Get<Pawn>("rewardGiver") != null && slate.TryGet<FloatRange>("marketValueRange", out _))
         {
             return slate.Get<Faction>("faction") != null;
         }

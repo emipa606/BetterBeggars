@@ -15,89 +15,98 @@ public class QuestNode_Root_Beggars_WantThing_Vanilla : QuestNode_Root_Beggars_W
 
     protected virtual void GetAllowedThings()
     {
-        if (BetterBeggars_Mod.settings.flagSilver && !AllowedThings.Contains(ThingDefOf.Silver))
+        switch (BetterBeggars_Mod.Settings.flagSilver)
         {
-            AllowedThings.Add(ThingDefOf.Silver);
-        }
-        else if (BetterBeggars_Mod.settings.flagSilver == false && AllowedThings.Contains(ThingDefOf.Silver))
-        {
-            AllowedThings.Remove(ThingDefOf.Silver);
-        }
-
-        if (BetterBeggars_Mod.settings.flagMedicineHerbal && !AllowedThings.Contains(ThingDefOf.MedicineHerbal))
-        {
-            AllowedThings.Add(ThingDefOf.MedicineHerbal);
-        }
-        else if (BetterBeggars_Mod.settings.flagMedicineHerbal == false &&
-                 AllowedThings.Contains(ThingDefOf.MedicineHerbal))
-        {
-            AllowedThings.Remove(ThingDefOf.MedicineHerbal);
+            case true when !AllowedThings.Contains(ThingDefOf.Silver):
+                AllowedThings.Add(ThingDefOf.Silver);
+                break;
+            case false when AllowedThings.Contains(ThingDefOf.Silver):
+                AllowedThings.Remove(ThingDefOf.Silver);
+                break;
         }
 
-        if (BetterBeggars_Mod.settings.flagMedicineIndustrial && !AllowedThings.Contains(ThingDefOf.MedicineIndustrial))
+        switch (BetterBeggars_Mod.Settings.flagMedicineHerbal)
         {
-            AllowedThings.Add(ThingDefOf.MedicineIndustrial);
-        }
-        else if (BetterBeggars_Mod.settings.flagMedicineIndustrial == false &&
-                 AllowedThings.Contains(ThingDefOf.MedicineIndustrial))
-        {
-            AllowedThings.Remove(ThingDefOf.MedicineIndustrial);
-        }
-
-        if (BetterBeggars_Mod.settings.flagPenoxycyline && !AllowedThings.Contains(ThingDefOf.Penoxycyline))
-        {
-            AllowedThings.Add(ThingDefOf.Penoxycyline);
-        }
-        else if (BetterBeggars_Mod.settings.flagPenoxycyline == false &&
-                 AllowedThings.Contains(ThingDefOf.Penoxycyline))
-        {
-            AllowedThings.Remove(ThingDefOf.Penoxycyline);
+            case true when !AllowedThings.Contains(ThingDefOf.MedicineHerbal):
+                AllowedThings.Add(ThingDefOf.MedicineHerbal);
+                break;
+            case false when
+                AllowedThings.Contains(ThingDefOf.MedicineHerbal):
+                AllowedThings.Remove(ThingDefOf.MedicineHerbal);
+                break;
         }
 
-        if (BetterBeggars_Mod.settings.flagBeer && !AllowedThings.Contains(ThingDefOf.Beer))
+        switch (BetterBeggars_Mod.Settings.flagMedicineIndustrial)
         {
-            AllowedThings.Add(ThingDefOf.Beer);
-        }
-        else if (BetterBeggars_Mod.settings.flagBeer == false && AllowedThings.Contains(ThingDefOf.Beer))
-        {
-            AllowedThings.Remove(ThingDefOf.Beer);
-        }
-
-        if (BetterBeggars_Mod.settings.flagGold && !AllowedThings.Contains(ThingDefOf.Gold))
-        {
-            AllowedThings.Add(ThingDefOf.Gold);
-        }
-        else if (BetterBeggars_Mod.settings.flagGold == false && AllowedThings.Contains(ThingDefOf.Gold))
-        {
-            AllowedThings.Remove(ThingDefOf.Gold);
+            case true when !AllowedThings.Contains(ThingDefOf.MedicineIndustrial):
+                AllowedThings.Add(ThingDefOf.MedicineIndustrial);
+                break;
+            case false when
+                AllowedThings.Contains(ThingDefOf.MedicineIndustrial):
+                AllowedThings.Remove(ThingDefOf.MedicineIndustrial);
+                break;
         }
 
-        if (BetterBeggars_Mod.settings.flagSteel && !AllowedThings.Contains(ThingDefOf.Steel))
+        switch (BetterBeggars_Mod.Settings.flagPenoxycyline)
         {
-            AllowedThings.Add(ThingDefOf.Steel);
-        }
-        else if (BetterBeggars_Mod.settings.flagSteel == false && AllowedThings.Contains(ThingDefOf.Steel))
-        {
-            AllowedThings.Remove(ThingDefOf.Steel);
-        }
-
-        if (BetterBeggars_Mod.settings.flagWood && !AllowedThings.Contains(ThingDefOf.WoodLog))
-        {
-            AllowedThings.Add(ThingDefOf.WoodLog);
-        }
-        else if (BetterBeggars_Mod.settings.flagWood == false && AllowedThings.Contains(ThingDefOf.WoodLog))
-        {
-            AllowedThings.Remove(ThingDefOf.WoodLog);
+            case true when !AllowedThings.Contains(ThingDefOf.Penoxycyline):
+                AllowedThings.Add(ThingDefOf.Penoxycyline);
+                break;
+            case false when
+                AllowedThings.Contains(ThingDefOf.Penoxycyline):
+                AllowedThings.Remove(ThingDefOf.Penoxycyline);
+                break;
         }
 
-        if (BetterBeggars_Mod.settings.flagComponent && !AllowedThings.Contains(ThingDefOf.ComponentIndustrial))
+        switch (BetterBeggars_Mod.Settings.flagBeer)
         {
-            AllowedThings.Add(ThingDefOf.ComponentIndustrial);
+            case true when !AllowedThings.Contains(ThingDefOf.Beer):
+                AllowedThings.Add(ThingDefOf.Beer);
+                break;
+            case false when AllowedThings.Contains(ThingDefOf.Beer):
+                AllowedThings.Remove(ThingDefOf.Beer);
+                break;
         }
-        else if (BetterBeggars_Mod.settings.flagComponent == false &&
-                 AllowedThings.Contains(ThingDefOf.ComponentIndustrial))
+
+        switch (BetterBeggars_Mod.Settings.flagGold)
         {
-            AllowedThings.Remove(ThingDefOf.ComponentIndustrial);
+            case true when !AllowedThings.Contains(ThingDefOf.Gold):
+                AllowedThings.Add(ThingDefOf.Gold);
+                break;
+            case false when AllowedThings.Contains(ThingDefOf.Gold):
+                AllowedThings.Remove(ThingDefOf.Gold);
+                break;
+        }
+
+        switch (BetterBeggars_Mod.Settings.flagSteel)
+        {
+            case true when !AllowedThings.Contains(ThingDefOf.Steel):
+                AllowedThings.Add(ThingDefOf.Steel);
+                break;
+            case false when AllowedThings.Contains(ThingDefOf.Steel):
+                AllowedThings.Remove(ThingDefOf.Steel);
+                break;
+        }
+
+        switch (BetterBeggars_Mod.Settings.flagWood)
+        {
+            case true when !AllowedThings.Contains(ThingDefOf.WoodLog):
+                AllowedThings.Add(ThingDefOf.WoodLog);
+                break;
+            case false when AllowedThings.Contains(ThingDefOf.WoodLog):
+                AllowedThings.Remove(ThingDefOf.WoodLog);
+                break;
+        }
+
+        switch (BetterBeggars_Mod.Settings.flagComponent)
+        {
+            case true when !AllowedThings.Contains(ThingDefOf.ComponentIndustrial):
+                AllowedThings.Add(ThingDefOf.ComponentIndustrial);
+                break;
+            case false when
+                AllowedThings.Contains(ThingDefOf.ComponentIndustrial):
+                AllowedThings.Remove(ThingDefOf.ComponentIndustrial);
+                break;
         }
     }
 
@@ -115,11 +124,11 @@ public class QuestNode_Root_Beggars_WantThing_Vanilla : QuestNode_Root_Beggars_W
         slate.Set("visitDurationTicks", VisitDuration);
         slate.Set("valueFactor", BeggarRequestValueFactor);
         GetAllowedThings();
-        BeggarRequestValueFactor = BetterBeggars_Mod.settings.BeggarRequestValueMultiplier;
+        BeggarRequestValueFactor = BetterBeggars_Mod.Settings.BeggarRequestValueMultiplier;
         var points = num * BeggarRequestValueFactor;
-        if (BetterBeggars_Mod.settings.LimitMaxValue)
+        if (BetterBeggars_Mod.Settings.LimitMaxValue)
         {
-            points = Math.Min(points, BetterBeggars_Mod.settings.MaxValue);
+            points = Math.Min(points, BetterBeggars_Mod.Settings.MaxValue);
         }
 
         if (TryFindRandomRequestedThing(map, points, out var thingDef, out var count,

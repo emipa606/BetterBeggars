@@ -9,11 +9,11 @@ namespace BetterBeggars;
 
 public class QuestNode_LeavePlayer : QuestNode
 {
-    [NoTranslate] public SlateRef<string> inSignal;
+    [NoTranslate] private SlateRef<string> inSignal;
 
-    public SlateRef<IEnumerable<Pawn>> pawns;
+    private SlateRef<IEnumerable<Pawn>> pawns;
 
-    public SlateRef<Faction> replacementFaction;
+    private SlateRef<Faction> replacementFaction;
 
     protected override bool TestRunInt(Slate slate)
     {
@@ -28,13 +28,13 @@ public class QuestNode_LeavePlayer : QuestNode
             return;
         }
 
-        var questPart_LeavePlayer = new QuestPart_LeavePlayer
+        var questPartLeavePlayer = new QuestPart_LeavePlayer
         {
             inSignal = QuestGenUtility.HardcodedSignalWithQuestID(inSignal.GetValue(slate)) ??
                        QuestGen.slate.Get<string>("inSignal"),
             replacementFaction = replacementFaction.GetValue(slate)
         };
-        questPart_LeavePlayer.pawns.AddRange(pawns.GetValue(slate));
-        QuestGen.quest.AddPart(questPart_LeavePlayer);
+        questPartLeavePlayer.pawns.AddRange(pawns.GetValue(slate));
+        QuestGen.quest.AddPart(questPartLeavePlayer);
     }
 }

@@ -8,11 +8,11 @@ namespace BetterBeggars;
 
 public class BetterBeggars_Settings : ModSettings
 {
-    public const float BeggarRequestValueMultiplierBase = 0.85f;
+    private const float BeggarRequestValueMultiplierBase = 0.85f;
     private static Vector2 scrollPosition = Vector2.zero;
     public float BeggarRequestValueMultiplier = BeggarRequestValueMultiplierBase;
     public bool flagBeer = true;
-    public bool flagCloth;
+    private bool flagCloth;
     public bool flagComponent;
     public bool flagFlake = true;
     public bool flagGold;
@@ -104,7 +104,8 @@ public class BetterBeggars_Settings : ModSettings
 
         listing_Standard.Gap(50f);
         listing_Standard.Label(
-            string.Concat("BeggarRequestValueMultiplier".Translate() + ": ", BeggarRequestValueMultiplier.ToString()),
+            (TaggedString)string.Concat("BeggarRequestValueMultiplier".Translate() + ": ",
+                BeggarRequestValueMultiplier.ToString()),
             -1f, "BeggarRequestValueMultiplier_Tooltip".Translate());
         BeggarRequestValueMultiplier =
             (float)Math.Round(listing_Standard.Slider(BeggarRequestValueMultiplier, 0.1f, 2f), 2);
@@ -121,11 +122,11 @@ public class BetterBeggars_Settings : ModSettings
             listing_Standard.IntEntry(ref MaxValue, ref intBuffer);
         }
 
-        if (BetterBeggars_Mod.currentVersion != null)
+        if (BetterBeggars_Mod.CurrentVersion != null)
         {
             listing_Standard.Gap();
             GUI.contentColor = Color.gray;
-            listing_Standard.Label("BetterBeggars_currentModVersion".Translate(BetterBeggars_Mod.currentVersion));
+            listing_Standard.Label("BetterBeggars_currentModVersion".Translate(BetterBeggars_Mod.CurrentVersion));
             GUI.contentColor = Color.white;
         }
 

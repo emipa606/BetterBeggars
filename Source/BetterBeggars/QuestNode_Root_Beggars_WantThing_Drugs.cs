@@ -15,7 +15,7 @@ public class QuestNode_Root_Beggars_WantThing_Drugs : QuestNode_Root_Beggars_Wan
 
     protected virtual void GetAllowedThings()
     {
-        switch (BetterBeggars_Mod.settings.flagYayo)
+        switch (BetterBeggars_Mod.Settings.flagYayo)
         {
             case true when !AllowedDrugs.Contains(BeggarDefOf.Yayo):
                 AllowedDrugs.Add(BeggarDefOf.Yayo);
@@ -25,7 +25,7 @@ public class QuestNode_Root_Beggars_WantThing_Drugs : QuestNode_Root_Beggars_Wan
                 break;
         }
 
-        switch (BetterBeggars_Mod.settings.flagFlake)
+        switch (BetterBeggars_Mod.Settings.flagFlake)
         {
             case true when !AllowedDrugs.Contains(BeggarDefOf.Flake):
                 AllowedDrugs.Add(BeggarDefOf.Flake);
@@ -35,7 +35,7 @@ public class QuestNode_Root_Beggars_WantThing_Drugs : QuestNode_Root_Beggars_Wan
                 break;
         }
 
-        switch (BetterBeggars_Mod.settings.flagLuciferium)
+        switch (BetterBeggars_Mod.Settings.flagLuciferium)
         {
             case true when !AllowedDrugs.Contains(ThingDefOf.Luciferium):
                 AllowedDrugs.Add(ThingDefOf.Luciferium);
@@ -46,7 +46,7 @@ public class QuestNode_Root_Beggars_WantThing_Drugs : QuestNode_Root_Beggars_Wan
         }
 
         var smokeLeafDef = DefDatabase<ThingDef>.GetNamedSilentFail("SmokeleafJoint");
-        switch (BetterBeggars_Mod.settings.flagSmokeleafJoint)
+        switch (BetterBeggars_Mod.Settings.flagSmokeleafJoint)
         {
             case true when !AllowedDrugs.Contains(smokeLeafDef):
                 AllowedDrugs.Add(smokeLeafDef);
@@ -57,7 +57,7 @@ public class QuestNode_Root_Beggars_WantThing_Drugs : QuestNode_Root_Beggars_Wan
                 break;
         }
 
-        switch (BetterBeggars_Mod.settings.flagBeer)
+        switch (BetterBeggars_Mod.Settings.flagBeer)
         {
             case true when !AllowedDrugs.Contains(ThingDefOf.Beer):
                 AllowedDrugs.Add(ThingDefOf.Beer);
@@ -82,11 +82,11 @@ public class QuestNode_Root_Beggars_WantThing_Drugs : QuestNode_Root_Beggars_Wan
         slate.Set("visitDurationTicks", VisitDuration);
         slate.Set("valueFactor", BeggarRequestValueFactor);
         GetAllowedThings();
-        BeggarRequestValueFactor = BetterBeggars_Mod.settings.BeggarRequestValueMultiplier;
+        BeggarRequestValueFactor = BetterBeggars_Mod.Settings.BeggarRequestValueMultiplier;
         var points = num * BeggarRequestValueFactor;
-        if (BetterBeggars_Mod.settings.LimitMaxValue)
+        if (BetterBeggars_Mod.Settings.LimitMaxValue)
         {
-            points = Math.Min(points, BetterBeggars_Mod.settings.MaxValue);
+            points = Math.Min(points, BetterBeggars_Mod.Settings.MaxValue);
         }
 
         if (TryFindRandomRequestedThing(map, points, out var thingDef, out var count,
@@ -145,17 +145,6 @@ public class QuestNode_Root_Beggars_WantThing_Drugs : QuestNode_Root_Beggars_Wan
         questPart_AddHediff.pawns.AddRange(pawns);
         questPart_AddHediff.hediffDef = hediffDef_Addiction;
         quest.AddPart(questPart_AddHediff);
-
-        /*
-         * Doesn't work for some reason :(
-        foreach (Pawn pawn in pawns) {
-            QuestPart_ChangeNeed questPart_ChangeNeed = new QuestPart_ChangeNeed();
-            questPart_ChangeNeed.pawn = pawn;
-            questPart_ChangeNeed.need = needDef;
-            questPart_ChangeNeed.offset = -0.5f;
-            quest.AddPart(questPart_ChangeNeed);
-        }
-        */
 
         var itemsReceivedSignal = QuestGen.GenerateNewSignal("ItemsReceived");
         var questPart_BegForItems = new QuestPart_BegForItems

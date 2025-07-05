@@ -9,15 +9,15 @@ namespace BetterBeggars;
 
 public class QuestNode_CreateFaction : QuestNode
 {
-    public SlateRef<int> defaultFactionRelations = 1;
+    private SlateRef<int> defaultFactionRelations = 1;
 
     public SlateRef<FactionDef> factionDef;
 
-    public SlateRef<bool> isHidden = false;
+    private SlateRef<bool> isHidden = false;
 
-    public SlateRef<bool> isTemporary = false;
+    private SlateRef<bool> isTemporary = false;
 
-    [NoTranslate] public SlateRef<string> storeAs;
+    [NoTranslate] private SlateRef<string> storeAs;
 
 
     protected override bool TestRunInt(Slate slate)
@@ -36,7 +36,7 @@ public class QuestNode_CreateFaction : QuestNode
                 list.Add(new FactionRelation
                 {
                     other = item,
-                    kind = GetFactionRelationKind(defaultFactionRelations.GetValue(slate))
+                    kind = getFactionRelationKind(defaultFactionRelations.GetValue(slate))
                 });
             }
         }
@@ -48,7 +48,7 @@ public class QuestNode_CreateFaction : QuestNode
         QuestGen.slate.Set(storeAs.GetValue(slate), faction);
     }
 
-    private FactionRelationKind GetFactionRelationKind(int i)
+    private static FactionRelationKind getFactionRelationKind(int i)
     {
         switch (i)
         {

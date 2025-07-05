@@ -9,15 +9,15 @@ namespace BetterBeggars;
 
 public class QuestNode_JoinPlayerTemporary : QuestNode
 {
-    public SlateRef<int> durationTicks = 60000;
+    private SlateRef<int> durationTicks = 60000;
 
-    [NoTranslate] public SlateRef<string> inSignal;
+    [NoTranslate] private SlateRef<string> inSignal;
 
-    public SlateRef<bool> joinPlayer;
+    private SlateRef<bool> joinPlayer;
 
-    public SlateRef<bool> makePrisoners;
+    private SlateRef<bool> makePrisoners;
 
-    public SlateRef<IEnumerable<Pawn>> pawns;
+    private SlateRef<IEnumerable<Pawn>> pawns;
 
     protected override bool TestRunInt(Slate slate)
     {
@@ -34,7 +34,7 @@ public class QuestNode_JoinPlayerTemporary : QuestNode
 
         var previousFaction = pawns.GetValue(slate).FirstOrFallback().Faction;
         // Join Player
-        var questPart_JoinPlayer = new QuestPart_JoinPlayer
+        var questPartJoinPlayer = new QuestPart_JoinPlayer
         {
             inSignal = QuestGenUtility.HardcodedSignalWithQuestID(inSignal.GetValue(slate)) ??
                        QuestGen.slate.Get<string>("inSignal"),
@@ -42,27 +42,27 @@ public class QuestNode_JoinPlayerTemporary : QuestNode
             makePrisoners = makePrisoners.GetValue(slate),
             mapParent = QuestGen.slate.Get<Map>("map").Parent
         };
-        questPart_JoinPlayer.pawns.AddRange(pawns.GetValue(slate));
-        QuestGen.quest.AddPart(questPart_JoinPlayer);
+        questPartJoinPlayer.pawns.AddRange(pawns.GetValue(slate));
+        QuestGen.quest.AddPart(questPartJoinPlayer);
 
         // Delay and leave
 
         QuestGen.quest.Delay(durationTicks.GetValue(slate), delegate
         {
-            var questPart_LeavePlayer = new QuestPart_LeavePlayer
+            var questPartLeavePlayer = new QuestPart_LeavePlayer
             {
                 pawns = (List<Pawn>)pawns.GetValue(slate),
                 replacementFaction = previousFaction
             };
-            QuestGen.quest.AddPart(questPart_LeavePlayer);
+            QuestGen.quest.AddPart(questPartLeavePlayer);
 
-            var questPart_Leave = new QuestPart_Leave
+            var questPartLeave = new QuestPart_Leave
             {
                 pawns = (List<Pawn>)pawns.GetValue(slate),
                 sendStandardLetter = true,
                 leaveOnCleanup = false
             };
-            QuestGen.quest.AddPart(questPart_Leave);
+            QuestGen.quest.AddPart(questPartLeave);
         });
     }
 }

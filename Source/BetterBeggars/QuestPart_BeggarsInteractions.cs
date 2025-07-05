@@ -64,7 +64,7 @@ public class QuestPart_BeggarsInteractions : QuestPartActivable
 
     public List<Pawn> pawns = [];
 
-    public int pawnsLeftUnhealthy;
+    private int pawnsLeftUnhealthy;
 
     protected override void ProcessQuestSignal(Signal signal)
     {
