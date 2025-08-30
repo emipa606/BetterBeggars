@@ -4,7 +4,7 @@
   "CanRemove": "0",
   "PreviewVersion": "1.6",
   "SocialImageSet": true,
-  "LastXmlCleaning": "2025-07-05T22:25:54.5103311+02:00",
+  "LastXmlCleaning": "2025-08-30T22:58:53.4717317+02:00",
   "SearchTags": [
     " event",
     " customization"
@@ -12,6 +12,7 @@
   "Patches": true,
   "Defs": true,
   "Assemblies": true,
-  "LinesOfCode": 73155.0,
-  "LinesOfXML": 25236.0
+  "LinesOfCode": 73155,
+  "LinesOfXML": 25236,
+  "CodeBaseSize": 79
 }

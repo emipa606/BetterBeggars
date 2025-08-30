@@ -26,4 +26,5 @@
   <BetterBeggars_resetMultiplier>重置乘数</BetterBeggars_resetMultiplier>
   <BetterBeggars_limitMaxValue>极限最大值</BetterBeggars_limitMaxValue>
   <BetterBeggars_maxValue>最大可能值：{0}银</BetterBeggars_maxValue>
+  <!-- Settings -->
 </LanguageData>

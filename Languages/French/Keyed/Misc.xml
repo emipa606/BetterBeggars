@@ -26,4 +26,5 @@
   <BetterBeggars_resetMultiplier>Remise à zéro du multiplicateur</BetterBeggars_resetMultiplier>
   <BetterBeggars_limitMaxValue>Limite Valeur maximale</BetterBeggars_limitMaxValue>
   <BetterBeggars_maxValue>Valeur maximale possible : {0} argent</BetterBeggars_maxValue>
+  <!-- Settings -->
 </LanguageData>

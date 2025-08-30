@@ -26,4 +26,5 @@
   <BetterBeggars_resetMultiplier>Multiplikator zurücksetzen</BetterBeggars_resetMultiplier>
   <BetterBeggars_limitMaxValue>Maximalwert begrenzen</BetterBeggars_limitMaxValue>
   <BetterBeggars_maxValue>Maximal möglicher Wert: {0} Silber</BetterBeggars_maxValue>
+  <!-- Settings -->
 </LanguageData>
