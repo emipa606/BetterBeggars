@@ -1,50 +1,88 @@
-# GitHub Copilot Instructions for Better Beggars (Continued) Mod
+# GitHub Copilot Instructions for Better Beggars (Continued)
 
 ## Mod Overview and Purpose
 
-The Better Beggars (Continued) mod is an enhancement of the original Better Beggars mod by Fraser Hitchens, designed for the popular game RimWorld, specifically extending the functionalities introduced with the Ideology DLC. This mod refines the interactions and events surrounding beggars that appear in the game, adding depth and variety, and allowing players to customize these interactions more than the base game allows.
+**Better Beggars (Continued)** is a mod for the game RimWorld, specifically designed to enhance the beggar interactions introduced in the Ideology DLC. The mod allows for greater customization of beggar events and interactions, providing a richer and more dynamic gameplay experience when dealing with this storyline. It updates and continues the work initially done by Fraser Hitchens.
 
 ## Key Features and Systems
 
-- **Customizable Begging Requests:** Adjust the multiplier for how much beggars will ask for, ranging from a 0.1x to a 2x multiplier based on your colony's wealth. The vanilla setting uses a 0.85x multiplier.
-- **Item Request Flexibility:** Change the types of items beggars request, offering variety and customized gameplay experiences.
-- **Delayed Rewards:** A chance for beggars to send a reward at a later time if you assist them, adding long-term consequences to your decisions.
-- **New Beggar Events:**
-  - **Beggar Addicts:** Events where beggars request drugs to deal with their addictions.
-  - **Chased Beggars:** Beggars being pursued by raiders may seek your help, potentially joining your colony temporarily as they seek refuge.
+- **Customizable Begging Amounts**: Adjust how much beggars request, with options from 0.1x to 2x the colony's wealth.
+- **Item Request Customization**: Define what items beggars can request from your colony.
+- **Delayed Rewards**: When helping beggars, there's a chance they will send you a reward later.
+- **New Events**:
+  - **Beggar Addicts**: These beggars request drugs to aid with their addictions, adding complexity and choice for players.
+  - **Beggars Chased by Raiders**: Assist these beggars by offering them refuge for a few days in exchange for potential temporary labor or permanent benefits.
 
 ### Planned Features
 
-- Expanding the range of items beggars can request.
-- Introducing more diverse beggar-related events.
+- Expansion of the item list for beggars’ requests.
+- Additional unique events involving beggars.
 
 ## Coding Patterns and Conventions
 
-This mod follows standard C# coding practices suitable for RimWorld modding:
+- **Coding Language**: The mod is written in C#. The .NET Framework version used is 4.8.
+- **Class Naming Conventions**: Classes are named using the PascalCase convention. For instance, `QuestNode_Root_Beggars_Chased`.
+- **File Organization**: Each logical component of the mod is separated into individual C# files, enabling modular design and maintenance.
 
-- **Class Definitions:** Public and internal classes are organized for modular functionality across the various aspects of beggar events and interactions.
-- **Method Declarations:** Methods are typically public for external interaction or private for internal logic intricate to the functioning of specific features.
+### XML Integration
 
-## XML Integration
-
-The mod uses XML to define various data-driven aspects, such as item lists and event parameters. XML integration allows for straightforward adjustments to in-game definitions, enhancing mod flexibility and user customization.
+- The mod uses XML files for defining game data (e.g., items, events) that can be dynamically integrated into the game.
+- XML Defs follow RimWorld's standard structure, and this allows for expanding or modifying existing content without altering base game files.
 
 ## Harmony Patching
 
-The Harmony library is utilized to patch existing game behavior without directly modifying base game code, maintaining compatibility with other mods and updates. Here's how it facilitates the mod:
+- **Harmony** is used for patching the existing game methods to introduce new functionality or alter existing behavior.
+- This ensures compatibility and minimizes conflicts, enhancing mod stability.
+- When creating patches, ensure you:
+  - Correctly identify the target methods or classes.
+  - Apply pre-fix and post-fix methods appropriately to inject custom logic.
 
-- **Event Modification:** By altering specific events using Harmony patches, the mod ensures compatibility while extending existing game features.
-- **Behavior Tweaking:** Adjusts internal game mechanics to introduce new features or balance existing ones based on mod parameters.
+### Suggestions for Utilizing Copilot
 
-## Suggestions for GitHub Copilot
+- **Auto-Completion**: Copilot can assist with writing repetitive game definitions or C# boilerplate code needed for new events or interactions in RimWorld.
+- **Error Handling**: Utilize Copilot to suggest and implement robust error handling, especially in Harmony patches, to catch and log exceptions without crashing the game.
+- **Modular Code**: Leverage Copilot’s pattern recognition to suggest modular reusable code blocks for common functionalities like generating random events or item requests.
+- **Documentation and Comments**: Use Copilot to help create comprehensive comments and documentation for your code, improving readability and future maintainability.
 
-To effectively assist with development:
+## FAQ
 
-1. **Generate Common Patterns:** Suggest class and method skeletons typical for RimWorld modding, including frequently used patterns like `QuestNode` extensions and `ModSettings`.
-2. **Assist with XML Serialization:** Provide guidance on crafting XML templates for defining item lists and quest parameters.
-3. **Harmony Patch Recommendations:** Suggest basic patch templates for integrating new events without conflict.
-4. **Context-Aware Refactorings:** Offer suggestions based on detected patterns, i.e., suggest when to create new classes versus extending existing ones.
-5. **Document Examples with Annotations:** Help annotate code with comments that improve readability and explain complex logic.
+**Q: Can this mod be added to an existing save?**
+- Yes, based on testing, it appears to be safe, though not guaranteed.
 
----
-This file provides guidance on extending and maintaining the Better Beggars (Continued) mod, outlining the mod framework and areas GitHub Copilot can assist in enhancing the codebase for developers.
+**Q: Can this mod be safely removed from a save?**
+- Yes, it has been tested to safely remove from a save file.
+
+## Compatibility
+
+- The mod should be compatible with other mods unless they modify the vanilla beggar quest or item definitions.
+- If you encounter compatibility issues, it is advised to enable this mod alone first to identify conflicts.
+
+## Troubleshooting and Support
+
+- **Error Logs**: Always utilize the Log Uploader for reporting issues.
+- **Discord**: For best support, report issues through the designated Discord channel.
+- **Solution Sharing**: If you discover a solution to a problem, contribute to the GitHub repository to assist other users.
+
+## Quality Assurance
+
+- Test mod alone to ensure base functionality works.
+- Reintroduce other mods gradually to identify potential conflicts.
+
+## Contribution and Licensing
+
+- **License**: This mod is licensed under GNU General Public License v3.0.
+- Contributions are welcome; please ensure compatibility and quality of new features through thorough testing.
+
+### Tags
+
+- Event, Customization
+
+This document serves as a comprehensive guide for modders and contributors looking to enhance or utilize the Better Beggars (Continued) mod. Happy modding!
+
+## Project Solution Guidelines
+- Relevant mod XML files are included as Solution Items under the solution folder named XML, these can be read and modified from within the solution.
+- Use these in-solution XML files as the primary files for reference and modification.
+- The `.github/copilot-instructions.md` file is included in the solution under the `.github` solution folder, so it should be read/modified from within the solution instead of using paths outside the solution. Update this file once only, as it and the parent-path solution reference point to the same file in this workspace.
+- When making functional changes in this mod, ensure the documented features stay in sync with implementation; use the in-solution `.github` copy as the primary file.
+- In the solution is also a project called Assembly-CSharp, containing a read-only version of the decompiled game source, for reference and debugging purposes.
+- For any new documentation, update this copilot-instructions.md file rather than creating separate documentation files.

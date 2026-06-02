@@ -39,7 +39,20 @@ public abstract class QuestNode_Root_Beggars_WantThing : QuestNode_Root_Beggars_
             var num = ThingUtility.RoundedResourceStackCount(Mathf.Max(1,
                 Mathf.RoundToInt(value / td.BaseMarketValue)));
             requestCountDict.Add(td, num);
-            return PlayerItemAccessibilityUtility.Accessible(td, num, map);
+
+            if (!PlayerItemAccessibilityUtility.Accessible(td, num, map))
+            {
+                return false;
+            }
+
+            return CountVisibleOnMap(td, map) >= num;
         }
+    }
+
+    private static int CountVisibleOnMap(ThingDef thingDef, Map map)
+    {
+        return map.listerThings.ThingsOfDef(thingDef)
+            .Where(thing => thing.Spawned && !thing.Position.Fogged(map))
+            .Sum(thing => thing.stackCount);
     }
 }
