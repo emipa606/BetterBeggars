@@ -70,7 +70,7 @@ internal class QuestNode_Root_Beggars_Chased : QuestNode_Root_Beggars_Base
         slate.Set("beggars", pawns);
         slate.Set("beggarCount", beggarCount);
 
-        beggarFaction.leader = pawns.First();
+        beggarFaction.leader = pawns[0];
         quest.SetFactionHidden(beggarFaction, true);
 
         var beggarRecruitedSignal = QuestGenUtility.HardcodedSignalWithQuestID("beggars.Recruited");
@@ -321,7 +321,7 @@ internal class QuestNode_Root_Beggars_Chased : QuestNode_Root_Beggars_Base
         return Find.Storyteller.difficulty.allowViolentQuests && TryFindWalkInSpot(map, out _);
     }
 
-    private bool TryFindWalkInSpot(Map map, out IntVec3 spawnSpot)
+    private static bool TryFindWalkInSpot(Map map, out IntVec3 spawnSpot)
     {
         if (CellFinder.TryFindRandomEdgeCellWith(c => !c.Fogged(map) && map.reachability.CanReachColony(c), map,
                 CellFinder.EdgeRoadChance_Neutral, out spawnSpot))
@@ -334,7 +334,7 @@ internal class QuestNode_Root_Beggars_Chased : QuestNode_Root_Beggars_Base
                CellFinder.TryFindRandomEdgeCellWith(_ => true, map, CellFinder.EdgeRoadChance_Neutral, out spawnSpot);
     }
 
-    private bool CanUseFaction(Faction faction)
+    private static bool CanUseFaction(Faction faction)
     {
         if (!faction.temporary && !faction.defeated && !faction.IsPlayer && faction.def.humanlikeFaction &&
             faction.def == FactionDefOf.TribeRough)
@@ -342,23 +342,10 @@ internal class QuestNode_Root_Beggars_Chased : QuestNode_Root_Beggars_Base
             return faction.HostileTo(Faction.OfPlayer);
         }
 
-        //var list = new List<FactionRelation>();
-        //foreach (var item in Find.FactionManager.AllFactionsListForReading)
-        //{
-        //    if (!item.def.permanentEnemy)
-        //    {
-        //        list.Add(new FactionRelation
-        //        {
-        //            other = item,
-        //            kind = FactionRelationKind.Neutral
-        //        });
-        //    }
-        //}
-
         return false;
     }
 
-    private Faction TryFindEnemyFaction()
+    private static Faction TryFindEnemyFaction()
     {
         Find.FactionManager.AllFactions.Where(CanUseFaction).TryRandomElement(out var enemyFaction);
         if (enemyFaction != null)

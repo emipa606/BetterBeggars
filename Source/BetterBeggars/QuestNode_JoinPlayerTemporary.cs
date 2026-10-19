@@ -32,7 +32,7 @@ public class QuestNode_JoinPlayerTemporary : QuestNode
             return;
         }
 
-        var previousFaction = pawns.GetValue(slate).FirstOrFallback().Faction;
+        var previousFaction = pawns.GetValue(slate).FirstOrFallback()?.Faction;
         // Join Player
         var questPartJoinPlayer = new QuestPart_JoinPlayer
         {

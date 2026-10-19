@@ -9,7 +9,7 @@ namespace BetterBeggars;
 
 public static class QuestGen_Misc
 {
-    public static QuestPart_AddQuestBeggarsDelayedReward AddQuestBeggarsDelayedReward(this Quest quest,
+    public static void AddQuestBeggarsDelayedReward(this Quest quest,
         Faction beggarFaction, IEnumerable<Pawn> pawns, FloatRange marketValueRange, string inSignalRemovePawn = null)
     {
         var questPart_AddQuestBeggarsDelayedReward = new QuestPart_AddQuestBeggarsDelayedReward
@@ -22,6 +22,5 @@ public static class QuestGen_Misc
         questPart_AddQuestBeggarsDelayedReward.beggars.AddRange(pawns);
         questPart_AddQuestBeggarsDelayedReward.marketValueRange = marketValueRange;
         quest.AddPart(questPart_AddQuestBeggarsDelayedReward);
-        return questPart_AddQuestBeggarsDelayedReward;
     }
 }

@@ -255,16 +255,16 @@ public class QuestPart_BeggarsInteractions : QuestPartActivable
         Complete();
     }
 
-    private InteractionResponseType ChooseRandomInteraction()
+    private static InteractionResponseType ChooseRandomInteraction()
     {
         return Gen.RandomEnumValue<InteractionResponseType>(false);
     }
 
-    public override void Notify_FactionRemoved(Faction f)
+    public override void Notify_FactionRemoved(Faction faction)
     {
-        if (faction == f)
+        if (this.faction == faction)
         {
-            faction = null;
+            this.faction = null;
         }
     }
 

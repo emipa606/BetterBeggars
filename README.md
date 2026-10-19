@@ -60,4 +60,4 @@ https://github.com/FraserHitchen/BetterBeggars
 
  
 
-[![Image](https://img.shields.io/github/v/release/emipa606/BetterBeggars?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3006899215) | tags: event, customization
+[![Image](https://img.shields.io/github/v/release/emipa606/BetterBeggars?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3006899215) | event, customization

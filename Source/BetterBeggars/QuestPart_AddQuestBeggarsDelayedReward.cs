@@ -37,9 +37,9 @@ public class QuestPart_AddQuestBeggarsDelayedReward : QuestPart_AddQuest
         return slate;
     }
 
-    public override void Notify_FactionRemoved(Faction f)
+    public override void Notify_FactionRemoved(Faction faction)
     {
-        if (beggarFaction == f)
+        if (beggarFaction == faction)
         {
             beggarFaction = null;
         }

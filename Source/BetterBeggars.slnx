@@ -12,16 +12,16 @@
   <Folder Name="/XML/Languages/English/Keyed/">
     <File Path="../Languages/English/Keyed/Misc.xml" />
   </Folder>
-  <Folder Name="/XML/1.6/Defs/Incidents/">
-    <File Path="../1.6/Defs/Incidents/Incidents_Map_Special.xml" />
+  <Folder Name="/XML/1.7/Defs/QuestScriptDefs/">
+    <File Path="../1.7/Defs/QuestScriptDefs/Script_Beggars_Chased.xml" />
+    <File Path="../1.7/Defs/QuestScriptDefs/Script_Beggars_DelayedReward.xml" />
+    <File Path="../1.7/Defs/QuestScriptDefs/Script_Beggars_Drugs.xml" />
+    <File Path="../1.7/Defs/QuestScriptDefs/Script_Beggars_Vanilla.xml" />
   </Folder>
-  <Folder Name="/XML/1.6/Defs/QuestScriptDefs/">
-    <File Path="../1.6/Defs/QuestScriptDefs/Script_Beggars_Chased.xml" />
-    <File Path="../1.6/Defs/QuestScriptDefs/Script_Beggars_DelayedReward.xml" />
-    <File Path="../1.6/Defs/QuestScriptDefs/Script_Beggars_Drugs.xml" />
-    <File Path="../1.6/Defs/QuestScriptDefs/Script_Beggars_Vanilla.xml" />
+  <Folder Name="/XML/1.7/Defs/Incidents/">
+    <File Path="../1.7/Defs/Incidents/Incidents_Map_Special.xml" />
   </Folder>
-  <Folder Name="/XML/1.6/Patches/">
-    <File Path="../1.6/Patches/Core.xml" />
+  <Folder Name="/XML/1.7/Patches/">
+    <File Path="../1.7/Patches/Core.xml" />
   </Folder>
 </Solution>

@@ -11,6 +11,8 @@ public class BetterBeggars_Settings : ModSettings
     private const float BeggarRequestValueMultiplierBase = 0.85f;
     private static Vector2 scrollPosition = Vector2.zero;
     public float BeggarRequestValueMultiplier = BeggarRequestValueMultiplierBase;
+    public bool LimitMaxValue;
+    public int MaxValue = 700;
     public bool flagBeer = true;
     private bool flagCloth;
     public bool flagComponent;
@@ -32,8 +34,6 @@ public class BetterBeggars_Settings : ModSettings
     // Drugs
     public bool flagYayo = true;
     private string intBuffer;
-    public bool LimitMaxValue;
-    public int MaxValue = 700;
 
     public override void ExposeData()
     {

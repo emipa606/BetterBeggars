@@ -10,7 +10,7 @@ namespace BetterBeggars;
 
 public abstract class QuestNode_Root_Beggars_WantThing : QuestNode_Root_Beggars_Base
 {
-    protected const int VisitDuration = 60000;
+    protected const int VisitDuration = GenDate.TicksPerDay;
 
     private static readonly Dictionary<ThingDef, int> requestCountDict = new();
 

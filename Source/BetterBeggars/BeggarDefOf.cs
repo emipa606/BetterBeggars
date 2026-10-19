@@ -3,6 +3,8 @@
 using RimWorld;
 using Verse;
 
+namespace BetterBeggars;
+
 [DefOf]
 public static class BeggarDefOf
 {
